@@ -1,5 +1,4 @@
 ![alt text](images/logo.png)
-<img src="https://komarev.com/ghpvc/?username=root-plinix&label=RootShell%20views&color=0e75b6&style=flat" alt="root-plinix" />
 # RootShell
 RootShell is a web based shell.
 Its can gather access on site hosted files.
